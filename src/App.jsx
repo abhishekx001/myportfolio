@@ -18,6 +18,7 @@ function App() {
 
       <main className="relative z-10">
         <Hero />
+        {/* <HeroGeometric badge="Kokonut UI" title1="Elevate Your" title2="Digital Vision" /> */}
         <Education />
         <Experience />
         <Skills />
@@ -25,7 +26,7 @@ function App() {
         <Contact />
       </main>
 
-      <footer className="py-8 text-center text-slate-500 text-sm relative z-10 border-t border-white/5 bg-dark-900/80 backdrop-blur-sm">
+      <footer className="py-8 text-center text-slate-500 text-sm relative z-10 border-t border-white/5 bg-black backdrop-blur-sm">
         <p>&copy; {new Date().getFullYear()} Abhishek S. All rights reserved.</p>
         <div className="mt-2 flex justify-center gap-4">
           {/* Using simple text links for footer */}

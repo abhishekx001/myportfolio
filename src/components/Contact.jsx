@@ -1,10 +1,20 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
+import { StarsBackground } from './ui/stars-background';
+
 const Contact = () => {
     return (
-        <section id="contact" className="py-20 px-4">
-            <div className="max-w-6xl mx-auto">
+        <section id="contact" className="relative py-20 px-4 min-h-screen bg-black overflow-hidden flex items-center">
+            <StarsBackground
+                starDensity={0.00015}
+                allStarsTwinkle={true}
+                twinkleProbability={0.7}
+                minTwinkleSpeed={0.5}
+                maxTwinkleSpeed={1}
+            />
+            <div className="absolute inset-0 bg-black/50" /> {/* Optional overlay for text readability */}
+            <div className="max-w-6xl mx-auto relative z-10 w-full">
                 <div className="grid md:grid-cols-2 gap-12">
 
                     {/* Contact Info */}
@@ -13,7 +23,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl font-bold text-white mb-6">Let's work together!</h2>
+                        <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">Let's work together!</h2>
                         <p className="text-slate-400 mb-8 text-lg">
                             I'm always open to discussing product design work or partnership opportunities.
                         </p>
@@ -45,30 +55,32 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="glass-card p-8 rounded-3xl border border-white/5"
+                        className="relative p-[1px] rounded-3xl bg-gradient-to-r from-indigo-500/10 via-white/5 to-rose-500/10"
                     >
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="col-span-2 sm:col-span-1">
-                                    <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
-                                    <input type="text" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" placeholder="John Doe" />
+                        <div className="bg-transparent p-8 rounded-3xl">
+                            <form className="space-y-6">
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="col-span-2 sm:col-span-1">
+                                        <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
+                                        <input type="text" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Doe" />
+                                    </div>
+                                    <div className="col-span-2 sm:col-span-1">
+                                        <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
+                                        <input type="email" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="john@example.com" />
+                                    </div>
                                 </div>
-                                <div className="col-span-2 sm:col-span-1">
-                                    <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                                    <input type="email" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" placeholder="john@example.com" />
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                                    <textarea rows="4" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none" placeholder="Tell me about your project..." />
                                 </div>
-                            </div>
 
-                            <div>
-                                <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                                <textarea rows="4" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors resize-none" placeholder="Tell me about your project..." />
-                            </div>
-
-                            <button type="button" className="w-full bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-medium py-4 rounded-xl shadow-lg shadow-primary-500/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
-                                Send Message
-                                <Send size={18} />
-                            </button>
-                        </form>
+                                <button type="button" className="w-full bg-white hover:bg-zinc-200 text-black font-bold py-4 rounded-xl shadow-lg shadow-white/10 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                                    Send Message
+                                    <Send size={18} />
+                                </button>
+                            </form>
+                        </div>
                     </motion.div>
 
                 </div>
@@ -79,12 +91,14 @@ const Contact = () => {
 
 const ContactItem = ({ icon, label, value, href }) => (
     <a href={href} className="flex items-center gap-4 group">
-        <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
-            {icon}
+        <div className="relative w-12 h-12 p-[1px] rounded-full bg-gradient-to-r from-indigo-500/30 via-white/10 to-rose-500/30 group-hover:from-indigo-500 group-hover:to-rose-500 transition-all duration-300">
+            <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                {icon}
+            </div>
         </div>
         <div>
-            <p className="text-sm text-slate-500 font-medium">{label}</p>
-            <p className="text-white font-medium group-hover:text-primary-400 transition-colors">{value}</p>
+            <p className="text-sm text-slate-400 font-medium mb-1">{label}</p>
+            <p className="text-white font-medium group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:to-rose-300 transition-all duration-300">{value}</p>
         </div>
     </a>
 );

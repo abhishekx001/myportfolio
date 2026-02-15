@@ -23,7 +23,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-900/90 backdrop-blur-lg shadow-lg py-1' : 'bg-transparent py-4'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#030303]/80 backdrop-blur-md shadow-lg py-1' : 'bg-transparent py-4'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-14' : 'h-16'}`}>
                     <motion.div
@@ -32,7 +32,7 @@ const Navbar = () => {
                         transition={{ duration: 0.5 }}
                         className="flex-shrink-0 font-bold text-xl cursor-pointer"
                     >
-                        <span className="text-accent-500">ABHISHEK</span> <span className="text-primary-500">S</span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">ABHISHEK S</span>
                     </motion.div>
 
                     <div className="hidden md:block">
@@ -44,9 +44,11 @@ const Navbar = () => {
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-white/10"
+                                    className="relative px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 group"
                                 >
-                                    {link.title}
+                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 opacity-70 group-hover:opacity-100 transition-opacity">
+                                        {link.title}
+                                    </span>
                                 </motion.a>
                             ))}
                         </div>

@@ -1,14 +1,55 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText, MapPin } from 'lucide-react';
 import { InteractiveRobotSpline } from './interactive-3d-robot';
+import ElegantShape from './ui/elegant-shape';
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
     return (
-        <section id="about" className="min-h-screen flex items-center justify-center px-4 pt-20 relative overflow-hidden">
-            {/* Background Elements */}
+        <section id="about" className="min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] px-4 pt-20 relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
+
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/20 rounded-full blur-[100px] animate-pulse-slow" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent-500/20 rounded-full blur-[100px] animate-pulse-slow" />
+                <ElegantShape
+                    delay={0.3}
+                    width={600}
+                    height={140}
+                    rotate={12}
+                    gradient="from-indigo-500/[0.15]"
+                    className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+                />
+                <ElegantShape
+                    delay={0.5}
+                    width={500}
+                    height={120}
+                    rotate={-15}
+                    gradient="from-rose-500/[0.15]"
+                    className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+                />
+                <ElegantShape
+                    delay={0.4}
+                    width={300}
+                    height={80}
+                    rotate={-8}
+                    gradient="from-violet-500/[0.15]"
+                    className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+                />
+                <ElegantShape
+                    delay={0.6}
+                    width={200}
+                    height={60}
+                    rotate={20}
+                    gradient="from-amber-500/[0.15]"
+                    className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+                />
+                <ElegantShape
+                    delay={0.7}
+                    width={150}
+                    height={40}
+                    rotate={-25}
+                    gradient="from-cyan-500/[0.15]"
+                    className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+                />
             </div>
 
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -32,7 +73,7 @@ const Hero = () => {
 
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                         Hi, I'm <br />
-                        <span className="text-gradient">Abhishek S</span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">Abhishek S</span>
                     </h1>
 
                     <p className="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
@@ -45,7 +86,7 @@ const Hero = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             href="#contact"
-                            className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-primary-500/25"
+                            className="bg-white hover:bg-zinc-200 text-black px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-white/10"
                         >
                             Let's Talk
                         </motion.a>
