@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const Hero = () => {
     return (
-        <section id="about" className="min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] px-4 pt-20 relative">
+        <section id="about" className="min-h-screen w-full flex items-start lg:items-center justify-center overflow-hidden bg-[#030303] px-4 pt-28 lg:pt-20 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
