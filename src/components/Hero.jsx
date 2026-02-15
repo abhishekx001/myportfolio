@@ -52,7 +52,7 @@ const Hero = () => {
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -104,9 +104,21 @@ const Hero = () => {
                     </div>
 
                     <div className="mt-12 flex items-center gap-6">
-                        <SocialLink href="https://linkedin.com" icon={<Linkedin size={20} />} />
-                        <SocialLink href="mailto:abishek96335451@gmail.com" icon={<Mail size={20} />} />
-                        <SocialLink href="https://github.com" icon={<Github size={20} />} />
+                        <SocialLink
+                            href="https://linkedin.com"
+                            icon={<Linkedin size={20} />}
+                            hoverColor="hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20"
+                        />
+                        <SocialLink
+                            href="mailto:abishek96335451@gmail.com"
+                            icon={<Mail size={20} />}
+                            hoverColor="hover:text-rose-400 hover:border-rose-500/50 hover:bg-rose-500/10 hover:shadow-lg hover:shadow-rose-500/20"
+                        />
+                        <SocialLink
+                            href="https://github.com"
+                            icon={<Github size={20} />}
+                            hoverColor="hover:text-purple-400 hover:border-purple-500/50 hover:bg-purple-500/10 hover:shadow-lg hover:shadow-purple-500/20"
+                        />
 
                         <div className="h-8 w-[1px] bg-slate-700 hidden md:block" />
 
@@ -121,7 +133,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative hidden md:flex items-center justify-center h-[500px]"
+                    className="relative hidden lg:flex items-center justify-center h-[500px]"
                 >
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/10 to-accent-500/10 rounded-full blur-3xl" />
                     <InteractiveRobotSpline
@@ -134,12 +146,12 @@ const Hero = () => {
     );
 };
 
-const SocialLink = ({ href, icon }) => (
+const SocialLink = ({ href, icon, hoverColor }) => (
     <a
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="p-3 rounded-full glass-card text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-slate-600"
+        className={`p-3 rounded-full glass-card text-slate-400 transition-all duration-300 border border-transparent ${hoverColor}`}
     >
         {icon}
     </a>

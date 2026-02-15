@@ -76,7 +76,7 @@ const Navbar = () => {
                             <a
                                 key={link.title}
                                 href={link.href}
-                                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium text-center"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.title}
